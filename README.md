@@ -1,5 +1,5 @@
 # File CMS App
-### Designed for PY175
+Designed for PY175
 
 ## Steps to set up:
 
