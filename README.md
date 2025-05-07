@@ -49,3 +49,8 @@ poetry run python app.py
 ```
 
 Commit to Github!
+
+Run tests using ```unittest```:
+```python
+poetry run python -m unittest tests.test_app
+```

@@ -2,7 +2,7 @@
 {% block content %}
 
     {% for file in files %}
-        <p><a href="/files/{{file}}">{{file}}</a></p>
+        <p><a href="{{ url_for('get_file', file_name=file) }}">{{file}}</a></p>
     {% endfor %}
 
 

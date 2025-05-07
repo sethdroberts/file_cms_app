@@ -1,12 +1,18 @@
-from flask import Flask, render_template
+from flask import (
+    Flask, 
+    render_template, 
+    send_from_directory, 
+    flash, 
+    redirect, 
+    url_for
+    )
+    
 from functools import wraps
 import os
-from files.utils import (
-    get_content_from_file,
-    get_file_from_filename,
-    )
+from files.utils import convert_to_html
 
 app = Flask(__name__)
+app.secret_key = 'secret1'
 
 def require_files(f):
     @wraps(f)
@@ -33,13 +39,17 @@ def index(files):
     return render_template('files.html', files=files)
     
 @app.route('/files/<file_name>')
-@require_files
 @require_data_dir
-def get_file(files, data_dir, file_name):
-    #Doesn't check if names are unique and raises NotFound
-    file = get_file_from_filename(file_name, files)
-    file_content = get_content_from_file(file, data_dir)
-    return render_template('file.html', file_content=file_content)
+def get_file(data_dir, file_name):
+    filepath = os.path.join(data_dir, file_name)
+    if os.path.isfile(filepath):
+        if file_name.endswith(".md"):
+            return convert_to_html(filepath)
+        else:
+            return send_from_directory(data_dir, file_name)
+    else:
+        flash(f'{file_name} does not exist', 'error')
+        return redirect(url_for('index'))
     
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
