@@ -1,4 +1,4 @@
-1989 - Guido van Rossum starts developing Python.
+   1989 - Guido van Rossum starts developing Python.
 1991 - Python 0.9.0 (initial release) is released.
 1994 - Python 1.0 is released.
 2000 - Python 2.0 is released.
