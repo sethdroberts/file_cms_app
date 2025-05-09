@@ -154,4 +154,7 @@ def sign_out():
     return redirect(url_for('sign_in'))
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8080)
+    if os.environ.get('FLASK_ENV') == 'production':
+        app.run(debug=False)
+    else:
+        app.run(debug=True, port=8080) # Use port 8080 on Cloud9
