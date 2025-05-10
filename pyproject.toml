@@ -2,19 +2,17 @@
 name = "file-cms-app"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "Your Name",email = "you@example.com"}
-]
+authors = ["Seth Roberts <sethknock@gmail.com>"]
 readme = "README.md"
-requires-python = ">=3.10"
-dependencies = [
-    "flask (>=3.1.0,<4.0.0)",
-    "markdown (>=3.8,<4.0)",
-    "pyyaml (>=6.0.2,<7.0.0)",
-    "bcrypt (>=4.3.0,<5.0.0)",
-    "gunicorn (>=23.0.0,<24.0.0)",
-]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "^3.0.0"
+gunicorn = "^23.0.0"
+markdown ="^3.8"
+pyyaml = "^6.0.2"
+bcrypt = "^4.3.0"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
