@@ -54,3 +54,7 @@ Run tests using ```unittest```:
 ```python
 poetry run python -m unittest tests.test_app
 ```
+
+NOTE- When sending to Render:
+1. Make sure to use the old version of the toml file (not the auto-generated one - still can't get it it to work). You can manually add in dependencies to start, and the use ```poetry lock``` to upgrade.
+2. 2. Make sure you have a folder with ```__init__.py``` inside in the root directory with same name as project file in the toml file. Seems necessary to avoid tricky errors from ```poetry install```.
